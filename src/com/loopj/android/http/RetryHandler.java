@@ -28,6 +28,7 @@ import java.io.InterruptedIOException;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.HashSet;
+import java.util.Iterator;
 
 import javax.net.ssl.SSLException;
 
@@ -102,11 +103,12 @@ class RetryHandler implements HttpRequestRetryHandler {
     }
     
     protected boolean isInList(HashSet<Class<?>> list, Throwable error) {
-    	for (Class<?> clazz : list) {
-			if(clazz.isInstance(error) ) {
-				return true;
-			}
-		}
+    	Iterator<Class<?>> itr = list.iterator();
+    	while (itr.hasNext()) {
+    		if (itr.next().isInstance(error)) {
+    			return true;
+    		}
+    	}
     	return false;
     }
 }
