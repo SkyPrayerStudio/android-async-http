@@ -40,20 +40,17 @@ import org.apache.http.message.BasicNameValuePair;
  * <p>
  * For example:
  * <p>
- * 
  * <pre>
  * RequestParams params = new RequestParams();
- * params.put(&quot;username&quot;, &quot;james&quot;);
- * params.put(&quot;password&quot;, &quot;123456&quot;);
- * params.put(&quot;email&quot;, &quot;my@email.com&quot;);
- * params.put(&quot;profile_picture&quot;, new File(&quot;pic.jpg&quot;)); // Upload a File
- * params.put(&quot;profile_picture2&quot;, someInputStream); // Upload an InputStream
- * params.put(&quot;profile_picture3&quot;, new ByteArrayInputStream(someBytes)); // Upload
- * 																		// some
- * 																		// bytes
- * 
+ * params.put("username", "james");
+ * params.put("password", "123456");
+ * params.put("email", "my&#064;email.com");
+ * params.put("profile_picture", new File("pic.jpg")); // Upload a File
+ * params.put("profile_picture2", someInputStream); // Upload an InputStream
+ * params.put("profile_picture3", new ByteArrayInputStream(someBytes)); // Upload some bytes
+ *
  * AsyncHttpClient client = new AsyncHttpClient();
- * client.post(&quot;http://myendpoint.com&quot;, params, responseHandler);
+ * client.post("http://myendpoint.com", params, responseHandler);
  * </pre>
  */
 public class RequestParams {
